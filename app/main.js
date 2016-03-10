@@ -16,11 +16,14 @@ var number;
 // =============================================================================
 
 function generateNumber() {
-  return 5;
+  var numRange = Math.floor(Math.random()*101);
+  console.log(numRange);
+  return numRange;
 };
 
 function clearInput() {
   userInputEl.value = '';
+
 };
 
 // =============================================================================
@@ -38,16 +41,21 @@ function clearInput() {
 
 function guessingGame(userInput) {
 
-  if (!userInput) {
-    if (submitBtnEl.value === "Start") {
+if (!userInput) {
+  if ((submitBtnEl.value === "Start") || (submitBtnEl.value === "Play Again")) {
       number = generateNumber();
       submitBtnEl.value = "Submit"
     }
-    msgDisplayEl.innerHTML = "Please guess the number 5"
-  } else if (userInput === "5") {
+    msgDisplayEl.innerHTML = "Please guess a number between 1 and 100." 
+  } else if (userInput < number.toString()) {
+    msgDisplayEl.innerHTML = "So sorry, that is not correct. (Guess HIGHER.)"
+    clearInput();
+  } else if (userInput > number.toString()) {
+    msgDisplayEl.innerHTML = "So sorry, that is not correct. (Guess LOWER.)"
+    clearInput();
+  }else if (userInput === number.toString()) {
     msgDisplayEl.innerHTML = "You guessed it! Great job!"
     clearInput();
     submitBtnEl.value = "Play Again"
   }
-
 }
