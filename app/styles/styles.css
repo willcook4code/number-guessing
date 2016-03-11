@@ -1,9 +1,30 @@
+body {
+  background: url(http://jcto.weill.cornell.edu/sites/default/files/pages/3.23.jpg) top left no-repeat;
+  background-size: cover; }
+
 header {
+  background-color: rgba(94, 150, 215, 0.7);
+  border-radius: 50%;
   font-size: 3em;
   text-align: center;
-  font-family: helvetica;
-  color: blue;
+  font-family: Palatino Linotype;
+  font-weight: 900;
+  text-shadow: darkblue 1px 2px 1px;
+  color: #39557D;
   min-height: 3em;
-  margin-top: 2em; }
+  margin-top: 2em;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 0.7em; }
+
+div {
+  padding: 0 15%; }
+
+input {
+  display: block;
+  margin: 3em auto;
+  text-align: center;
+  font-size: 1.5em;
+  vertical-align: middle; }
 
 /*# sourceMappingURL=styles.css.map */
