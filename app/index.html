@@ -7,9 +7,12 @@
   </head>
   <body>
     <div id="app">
-      <header id="msgDisplay">To begin,<br /> choose a minimum number
-      <input type="number" id="minRange"/> and a maximum number.
-      <input type="number" id="maxRange"/>
+      <header id="msgDisplay">
+      <h2>
+      To begin,<br /> choose a minimum number
+      <input type="number" id="minRange" class="chooseRange"/> and a maximum number.
+      <input type="number" id="maxRange" class="chooseRange"/>
+      </h2>
       </header>
        <input type="button" id="submitBtn" value="Start" onclick="guessingGame(userInputEl.value)"/>
       <input type="text" id="userInput"/>

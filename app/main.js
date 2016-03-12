@@ -60,7 +60,7 @@ if (!userInput) {
     clearInput();
     counter++;
   } else if (userInput === number.toString()) {
-    msgDisplayEl.innerHTML = "You guessed it! It only took you " + counter + " tries!  Great..... job?"
+    msgDisplayEl.innerHTML = "You guessed it! It only took you " + counter + " tries! Great..... job."
     clearInput();
     submitBtnEl.value = "Play Again"
   }
