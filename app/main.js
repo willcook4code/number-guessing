@@ -8,15 +8,18 @@
 var msgDisplayEl = document.getElementById('msgDisplay');
 var userInputEl = document.getElementById('userInput');
 var submitBtnEl = document.getElementById('submitBtn');
+var minRangeEl = document.getElementById('minRange');
+var maxRangeEl = document.getElementById('maxRange');
 var number;
+var counter = 0;
 
 // =============================================================================
 // Some example functions, to get you started. You can change, delete, add to
 // these however you like!
 // =============================================================================
 
-function generateNumber() {
-  var numRange = Math.floor(Math.random()*101);
+function generateNumber(min, max) {
+  var numRange = Math.floor(Math.random()*(max-min) + 1) + min;
   console.log(numRange);
   return numRange;
 };
@@ -43,18 +46,21 @@ function guessingGame(userInput) {
 
 if (!userInput) {
   if ((submitBtnEl.value === "Start") || (submitBtnEl.value === "Play Again")) {
-      number = generateNumber();
+      msgDisplayEl.innerHTML = "Please guess a number."; 
+      number = generateNumber(parseInt(minRangeEl.value), parseInt(maxRangeEl.value));
       submitBtnEl.value = "Submit"
-    }
-    msgDisplayEl.innerHTML = "Please guess a number between 1 and 100." 
+  }
+    
   } else if (userInput < number.toString()) {
     msgDisplayEl.innerHTML = "So sorry, that is not correct. (Guess HIGHER.)"
     clearInput();
+    counter++;
   } else if (userInput > number.toString()) {
     msgDisplayEl.innerHTML = "So sorry, that is not correct. (Guess LOWER.)"
     clearInput();
-  }else if (userInput === number.toString()) {
-    msgDisplayEl.innerHTML = "You guessed it! Great job!"
+    counter++;
+  } else if (userInput === number.toString()) {
+    msgDisplayEl.innerHTML = "You guessed it! It only took you " + counter + " tries!  Great..... job?"
     clearInput();
     submitBtnEl.value = "Play Again"
   }
