@@ -19,9 +19,12 @@ var counter = 0;
 // =============================================================================
 
 function generateNumber(min, max) {
-  var numRange = Math.floor(Math.random()*(max-min) + 1) + min;
+  var numRange = Math.floor(Math.random()*((max-min) + min)) + 1;
   console.log(numRange);
   return numRange;
+  while (isNaN(number)) {
+    prompt("You did not enter numeric values.  Please refresh screen and start again.");
+  }
 };
 
 function clearInput() {
@@ -42,6 +45,7 @@ function clearInput() {
 // Luck!
 // =============================================================================
 
+
 function guessingGame(userInput) {
 
 if (!userInput) {
@@ -49,6 +53,7 @@ if (!userInput) {
       msgDisplayEl.innerHTML = "Please guess a number."; 
       number = generateNumber(parseInt(minRangeEl.value), parseInt(maxRangeEl.value));
       submitBtnEl.value = "Submit"
+
   }
     
   } else if (userInput < number.toString()) {
