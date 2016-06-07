@@ -11,7 +11,8 @@ var submitBtnEl = document.getElementById('submitBtn');
 var minRangeEl = document.getElementById('minRange');
 var maxRangeEl = document.getElementById('maxRange');
 var number;
-var counter = 0;
+
+var counter = 1;
 
 // =============================================================================
 // Some example functions, to get you started. You can change, delete, add to
@@ -20,11 +21,8 @@ var counter = 0;
 
 function generateNumber(min, max) {
   var numRange = Math.floor(Math.random()*((max-min) + min)) + 1;
-  console.log(numRange);
+
   return numRange;
-  while (isNaN(number)) {
-    prompt("You did not enter numeric values.  Please refresh screen and start again.");
-  }
 };
 
 function clearInput() {
@@ -49,13 +47,12 @@ function clearInput() {
 function guessingGame(userInput) {
 
 if (!userInput) {
+
   if ((submitBtnEl.value === "Start") || (submitBtnEl.value === "Play Again")) {
       msgDisplayEl.innerHTML = "Please guess a number."; 
       number = generateNumber(parseInt(minRangeEl.value), parseInt(maxRangeEl.value));
       submitBtnEl.value = "Submit"
-
   }
-    
   } else if (userInput < number.toString()) {
     msgDisplayEl.innerHTML = "So sorry, that is not correct. (Guess HIGHER.)"
     clearInput();
@@ -67,6 +64,7 @@ if (!userInput) {
   } else if (userInput === number.toString()) {
     msgDisplayEl.innerHTML = "You guessed it! It only took you " + counter + " tries! Great..... job."
     clearInput();
+    counter = 1;
     submitBtnEl.value = "Play Again"
   }
 }
